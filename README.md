@@ -1,24 +1,28 @@
-# Credit Card Fraud Detection — Learning with Imbalanced Data
+# Credit Card Fraud Detection — Машинное обучение на несбалансированных данных
 
-An academic machine-learning study comparing resampling, class weighting and ensemble models for **highly imbalanced credit-card fraud detection**. The dataset contains **284,807 transactions**, with around **0.17% fraud cases**.
+Учебно-исследовательский проект по сравнительному анализу методов ресемплинга, взвешивания классов и ансамблевых моделей для **выявления мошеннических операций по банковским картам в условиях экстремального дисбаланса классов**.
 
-## Key findings
+Датасет содержит **284 807 транзакций**, из которых около **0,17% составляют мошеннические операции**.
 
-- Compared RandomUnderSampler, NearMiss, ClusterCentroids, RandomOverSampler, SMOTE and ADASYN, plus an experimental GAN-based oversampler.
-- Benchmarked Logistic Regression, SVM and tree/ensemble models, including XGBoost, LightGBM and Balanced Random Forest.
-- Applied resampling **inside training folds** to reduce leakage risk and tuned decision thresholds using stratified cross-validation.
-- In the final recorded comparison, **XGBoost** made around **9.4 false alarms per detected fraud case**, versus **18.7** for Balanced Random Forest; it sacrificed some recall in exchange for fewer false alarms and faster training.
+## Основные результаты
 
-## Run
+- Провёл сравнительный анализ методов RandomUnderSampler, NearMiss, ClusterCentroids, RandomOverSampler, SMOTE и ADASYN, а также экспериментального GAN-based oversampler для генерации примеров миноритарного класса.
+- Сравнил Logistic Regression, SVM и модели на основе деревьев решений и ансамблей, включая XGBoost, LightGBM и Balanced Random Forest.
+- Применил ресемплинг **внутри обучающих фолдов** для снижения риска data leakage. Подбирал пороги классификации с использованием stratified cross-validation.
+- В итоговом сравнении **XGBoost** давал около **9,4 ложных срабатывания на одну обнаруженную мошенническую операцию** против **18,7 у Balanced Random Forest**. При этом XGBoost обеспечивал меньше ложных тревог и более быстрое обучение ценой некоторого снижения recall.
 
-1. Obtain the [Credit Card Fraud Detection dataset on Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
-2. Place `creditcard.csv` alongside `credit_card_fraud_ml.ipynb`. The `.gitignore` excludes the data file.
-3. Install the dependencies in `requirements.txt`.
-4. Open the notebook in Jupyter or Colab and execute the sections in order.
+## Запуск
 
-Some experiments are computationally expensive. The original notebook includes saved analysis and output cells.
+1. Загрузите [датасет Credit Card Fraud Detection с Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
+2. Разместите файл `creditcard.csv` в одной директории с `credit_card_fraud_ml.ipynb`. Файл `.gitignore` исключает датасет из репозитория.
+3. Установите зависимости, перечисленные в `requirements.txt`.
+4. Откройте ноутбук в Jupyter или Google Colab и последовательно выполните все разделы.
 
-## Repository contents
+Некоторые эксперименты требуют значительных вычислительных ресурсов и времени выполнения.
 
-- `credit_card_fraud_ml.ipynb` — EDA, resampling, model comparison, optimization and findings.
-- `requirements.txt` — key third-party dependencies.
+Исходный ноутбук содержит сохранённые результаты анализа и выполненных ячеек, позволяющие ознакомиться с экспериментами без необходимости повторного запуска всех вычислений.
+
+## Структура репозитория
+
+- `credit_card_fraud_ml.ipynb` — основной экспериментальный ноутбук, включающий EDA, ресемплинг, сравнение моделей, оптимизацию и анализ полученных результатов.
+- `requirements.txt` — основные сторонние зависимости проекта.
