@@ -1,0 +1,28 @@
+# Notebooks and Python
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Local datasets, artifacts, trained models
+data/
+artifacts/
+cache/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.pkl
+*.joblib
+*.csv
+*.parquet
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
